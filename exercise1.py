@@ -112,6 +112,7 @@ def get_genres(books: list) -> list:
     return list_of_genres
 
 
+
 if __name__ == '__main__':
     print("Test your functions by calling them here. Use different parameter values to test them with different scenarios.")
 
