@@ -5,16 +5,16 @@ with open('books.json', 'r') as file:
 # Exercise 1
 # Part 1: Compute statistics
 def get_statistics(books: list) -> dict:
-    author_stats = {}
+    author_stats = {} # empty dictionary that holds author information
 
-    for book in books:
+    for book in books: # loop through the books and extract information
         author = book['author']
         pages = book['total_pages']
         chapters = book['chapter_count']
         title = book['title']
         publication_date = book['publication_date']
 
-        if author not in author_stats:
+        if author not in author_stats: # check if  author is already in the dictionary; if not initialize new entry
             author_stats[author] = {
                 'total_pages': 0,
                 'total_chapters': 0,
@@ -41,8 +41,23 @@ def get_statistics(books: list) -> dict:
 
     return author_stats
 
-statistics = get_statistics(books)
-print(statistics)
+# Assuming books.json is already loaded into a variable `books`
+final_dict = get_statistics(books)
+
+# Print the result
+print(final_dict)
+
+def print_statistics(final_dict: dict):
+    for author, data in final_dict.items():
+        print(f"Author: {author}")
+        print(f"  Total Pages: {data['total_pages']}")
+        print(f"  Titles: {', '.join(data['books'])}")
+        print(f"  Average Chapters: {data['average_chapters']:.2f}")
+        print(f"  Publication Period: {data['publication_period'][0]} to {data['publication_period'][1]}")
+        print("\n" + "-"*50 + "\n")
+
+# Call the function to print the final dictionary
+print_statistics(final_dict)
 
 
 # Part 2: Get a list of genres
