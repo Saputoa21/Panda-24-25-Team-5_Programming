@@ -1,3 +1,5 @@
+from collections import deque
+
 def print_labyrinth(lab: list[str], path: list[tuple[int, int]] = None):
 
     def replace_at_index(s: str, r: str, idx: int) -> str:
@@ -31,12 +33,32 @@ def prompt_user_for_location(name: str) -> tuple[int, int]:
     column = prompt_integer(f"Column of {name} location: ")
     return row, column
 
+# Function for checking the traversability in lab
+def is_traversable(lab: list[str], location: tuple[int, int]) -> bool:
+    if lab[location[0]][location[1]] == "█":
+        return False
+    return True
+
 # BFS function to traverse a graph
 def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> list[tuple[int, int]]:
     # ... your implementation here...
-    path = [(1, 4), (1, 5), (1, 6), (1, 7), (2, 7), (3, 7), (4, 7), (5, 7), (5, 8), (5, 9), (5, 10)]
-    return path
-
+    q = deque()
+    q.append([start])
+    v = set()
+    moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    if is_traversable(lab, start) == False:
+        return
+    while len(q) != 0:
+        path = q.popleft()
+        last = path[-1]
+        if last == end:
+            return path
+        if last not in v:
+            v.add(last)
+            for move in moves:
+                next = (last[0] + move[0], last[1] + move[1])
+                if is_traversable(lab, next) == True:
+                    q.append(path+[next])
 
 # Labyrinth represented as a list of strings
 labyrinth = [
@@ -49,7 +71,6 @@ labyrinth = [
     "█████████████"
 ]
 
-
 print_labyrinth(labyrinth)
 
 start_location = prompt_user_for_location("start")
@@ -60,6 +81,6 @@ path = bfs(labyrinth, start_location, end_location)
 
 print_labyrinth(labyrinth, path)
 
-
-
-
+# #checking if function "is_traversable" works
+# print(is_traversable(labyrinth, (0,0)))
+# print(is_traversable(labyrinth, (1,1)))
