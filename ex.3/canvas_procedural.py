@@ -147,6 +147,8 @@ import math
 # # Print what we have painted
 # print_canvas(canvas)
 #
+
+
 # """My implementation"""
 #
 # import math

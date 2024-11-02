@@ -47,7 +47,7 @@ def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> list[tu
     v = set()
     moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
     if is_traversable(lab, start) == False:
-        return
+        return print("Choose other starting end ending points.")
     while len(q) != 0:
         path = q.popleft()
         last = path[-1]
@@ -82,5 +82,5 @@ path = bfs(labyrinth, start_location, end_location)
 print_labyrinth(labyrinth, path)
 
 # #checking if function "is_traversable" works
-# print(is_traversable(labyrinth, (0,0)))
-# print(is_traversable(labyrinth, (1,1)))
+#print(is_traversable(labyrinth, (0,0)))
+#print(is_traversable(labyrinth, (1,1)))
