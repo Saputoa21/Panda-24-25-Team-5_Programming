@@ -147,8 +147,6 @@ draw_n_gon(canvas, (72, 25), 12, 20, 80, "-")
 # Print what we have painted
 print_canvas(canvas)
 
-
-
 """My implementation"""
 
 import math
@@ -251,3 +249,6 @@ canvas.draw_rectangle((45, 2), (80, 27), '#')
 canvas.draw_n_gon((72, 25), 12, 20, 80, "-")
 
 canvas.print_canvas()
+
+
+"""Assignment 2"""
