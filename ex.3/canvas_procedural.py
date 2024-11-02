@@ -257,26 +257,33 @@ class Point:
     def __init__(self, x: float, y: float):
         self.x = x
         self.y = y
-
     def __repr__(self):
         return f"({self.x}/{self.y})"
 
-#output check
-p1 = Point(2.3, 43.14)
-p2 = Point(5.53, 2.5)
-p3 = Point(12.2, 28.7)
-print(p1)
-print([p1, p2, p3])
-
-
-class Shape(list[str, ...]):
+class Shape(list[Point, ...]):
     def __init__(self, *points : Point):
         super().__init__(points)
 
     def __repr__(self):
         return "[" + ", ".join(str(point) for point in self) + "]"
 
-# output check
+    def centroid(self) -> Point:
+        total_x = sum(point.x for point in self)
+        total_y = sum(point.y for point in self)
+        center_x = total_x / len(self)
+        center_y = total_y / len(self)
+        return Point(center_x, center_y)
+
+
+
+#output check phase 1
+p1 = Point(2.3, 43.14)
+p2 = Point(5.53, 2.5)
+p3 = Point(12.2, 28.7)
+print(p1)
+print([p1, p2, p3])
+
+# output check phase 2
 s1 = Shape(p1, p2, p3)
 s2 = Shape(p2)
 s3 = Shape()
@@ -284,7 +291,10 @@ print(s1)
 print(s2)
 print(s3)
 
-
-
-
-
+#output check phase 3
+s1 = Shape(Point(0, 0), Point(0, 1), Point(1, 1), Point(1, 0))
+s2 = Shape(Point(0, 0.5), Point(0.5, 1), Point(1, 0.5), Point(0.5, 0))
+s3 = Shape(Point(0.25, 0.25), Point(0.25, 0.75), Point(0.75, 0.75), Point(0.75, 0.25))
+print(s1.centroid())
+print(s2.centroid())
+print(s3.centroid())
