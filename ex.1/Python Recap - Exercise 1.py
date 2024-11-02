@@ -22,12 +22,13 @@ def get_statistics(books: list) -> dict:
                 'publication_dates': []
             }
 
-        author_stats[author]['total_pages'] += pages
-        author_stats[author]['total_chapters'] += chapters
-        author_stats[author]['books'].append(title)
-        author_stats[author]['publication_dates'].append(publication_date)
+        a_stats = author_stats[author]
+        a_stats['total_pages'] += pages # update the values for each author
+        a_stats['total_chapters'] += chapters
+        a_stats['books'].append(title)
+        a_stats['publication_dates'].append(publication_date)
 
-    for author, stats in author_stats.items():
+    for author, stats in author_stats.items(): # loop over each author to calculate statistics.
         stats['average_chapters'] = stats['total_chapters'] / len(stats['books'])
         stats['first_publication'] = min(stats['publication_dates'])
         stats['last_publication'] = max(stats['publication_dates'])
@@ -73,3 +74,4 @@ def get_genres (books: list) -> list:
 
 genre_stats = get_genres(books)
 print(genre_stats)
+
