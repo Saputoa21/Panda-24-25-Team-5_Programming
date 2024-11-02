@@ -1,7 +1,8 @@
+"""Assignment 1"""
+
 """Original Code"""
 
 import math
-
 
 def print_canvas(canvas: list[str, ...]):  # Print the canvas to see the result
     """
