@@ -252,3 +252,23 @@ canvas.print_canvas()
 
 
 """Assignment 2"""
+
+class Point:
+    def __init__(self, x: float, y: float):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return f"({self.x}/{self.y})"
+
+p1 = Point(2.3, 43.14)
+p2 = Point(5.53, 2.5)
+p3 = Point(12.2, 28.7)
+
+print(p1)
+print([p1, p2, p3])
+
+
+class Shape():
+
+
