@@ -2,7 +2,7 @@
 
 # """Original Code"""
 #
-# import math
+import math
 #
 # def print_canvas(canvas: list[str, ...]):  # Print the canvas to see the result
 #     """
@@ -259,6 +259,9 @@ class Point:
         self.y = y
     def __repr__(self):
         return f"({self.x}/{self.y})"
+    def distance_from_origin(self) -> float:
+        return ((self.x) **2 + (self.y)**2)**0.5
+
 
 class Shape(list[Point, ...]):
     def __init__(self, *points : Point):
@@ -298,3 +301,11 @@ s3 = Shape(Point(0.25, 0.25), Point(0.25, 0.75), Point(0.75, 0.75), Point(0.75, 
 print(s1.centroid())
 print(s2.centroid())
 print(s3.centroid())
+
+#output check phase 4
+p1 = Point(1, 1)
+p2 = Point(5, 5)
+p3 = Point(10, 10)
+print(p1.distance_from_origin())
+print(p2.distance_from_origin())
+print(p3.distance_from_origin())
