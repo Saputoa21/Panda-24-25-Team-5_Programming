@@ -40,11 +40,11 @@ def is_traversable(lab: list[str], location: tuple[int, int]) -> bool:
     return True
 
 # BFS function to traverse a graph
-def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> list[tuple[int, int]]:
+def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> None:
     # ... your implementation here...
     q = deque()
     q.append([start])
-    v = set()
+    visited = set()
     moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]
     if is_traversable(lab, start) == False:
         return print("Choose other starting end ending points.")
@@ -53,8 +53,8 @@ def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> list[tu
         last = path[-1]
         if last == end:
             return path
-        if last not in v:
-            v.add(last)
+        if last not in visited:
+            visited.add(last)
             for move in moves:
                 next = (last[0] + move[0], last[1] + move[1])
                 if is_traversable(lab, next) == True:
