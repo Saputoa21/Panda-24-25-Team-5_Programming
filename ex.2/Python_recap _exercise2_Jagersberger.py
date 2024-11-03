@@ -53,13 +53,13 @@ def is_traversable(lab: list[str], location: tuple[int, int]) -> bool:
 
 # BFS function to find the shortest path
 def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> list[tuple[int, int]]:
-    Q = deque([[start]])  # Queue holds all paths considered so far
+    queue = deque([[start]])  # Queue holds all paths considered so far
     visited_locations = set()  # Visited set to track visited positions
 
     moves = [(0, 1), (0, -1), (1, 0), (-1, 0)]  # Possible moves: down, up, right, left
 
-    while Q:
-        path = Q.popleft()  # Dequeue the first path
+    while queue:
+        path = queue.popleft()  # Dequeue the first path
         last = path[-1]  # Get the last position in the path
 
         if last == end:  # If last position is the end, return the path
@@ -73,7 +73,7 @@ def bfs(lab: list[str], start: tuple[int, int], end: tuple[int, int]) -> list[tu
 
                 # Use the is_traversable function to check if the next position is walkable
                 if is_traversable(lab, next_pos):
-                    Q.append(path + [next_pos])   # Enqueue the new path
+                    queue.append(path + [next_pos])   # Enqueue the new path
 
     return []  # If no path is found, return an empty list
 
