@@ -9,6 +9,8 @@ class Point1:
     def __repr__(self):
         return f"Point({self.x}, {self.y})"
 
+    __str__ = __repr__
+
 class Canvas(list):
     def __init__(self, width, height):
         super().__init__()
@@ -166,6 +168,8 @@ class Point:
     def __repr__(self):
         # Return a formatted string for both __str__ and __repr__
         return f"({self.x}/{self.y})"
+
+    __str__ = __repr__
 
     # Phase 4: Distance of a Point from the origin
     def distance_from_origin(self) -> float:
