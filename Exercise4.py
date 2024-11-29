@@ -77,36 +77,34 @@ total_word_count = len(words)
 
 word_frequencies = Counter(words)
 
-word_percentages_modulo = {word: (count / total_word_count) for word, count in word_frequencies.items()}
+word_percentages = {word: (count / total_word_count) for word, count in word_frequencies.items()}
 
 print(" ===== Word Frequency Results =====\n")
+
 unique_words = set()
-for word, frequency in word_frequencies.items():
-    print(f"{word}: {frequency}")
+for word, count in word_frequencies.items():
+    print(f"{word}: {count}")
     unique_words.add(word)
 
 print("\nTotal unique words found in the lyrics: ", len(unique_words),"\n")
 
-
 table = [
-    ["Word", "Occurence", "Percent"],
+    ["Word", "Occurencies", "Percentage (%)"],
+    ["----------","-----------","---------------"]
         ]
 
-# for word, count in most_common_10_words:
-#     for word2, percent in word_percentages_rounded.items():
-#         if word == word2 in word_percentages_rounded.keys():
-#             table.append([word, count, percent])
-#         else:
-#             continue
+for word, count in word_frequencies.items():
+    for word2, percent in word_percentages.items():
+        if word == word2:
+            table.append([word, count, percent])
+        else:
+            continue
 
 print("===== Word Types and Their Percentage of Total Content ===== \n")
 
-row_format = "{:<10} {:^15} {:<7}"
-
+row_format = "{:<10} {:<11} {:<15}"
 for row in table:
     print(row_format.format(*row))
-
-
 
 # Step 6: Identifying Top 10 Most Frequent Words and Their Percentage of Total
 
@@ -116,6 +114,6 @@ print(most_common_10_words)
 
 word_percentages_rounded = {word: (count / total_word_count) for word, count in word_frequencies.items()}
 
-print("===== Top 10 Most Frequently Used Words =====")
+print("\n===== Top 10 Most Frequently Used Words =====\n")
 for word, count in most_common_10_words:
     print(f"{word}: {count}")
