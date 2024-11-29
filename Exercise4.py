@@ -42,20 +42,30 @@ letter_counts = Counter(char.lower() for char in song if char.lower() in string.
 
 non_alpha_counts = sum(1 for char in song if char not in string.ascii_letters)
 
-# Print the results
 print("==== Letter Frequencies Results ==== ")
 for letter, count in sorted(letter_counts.items()):
     print(f"{letter}: {count}")
 
-print("\nNon-alphabet characters:", non_alpha_counts)
+print("\nNon-alphabet characters:", non_alpha_counts,"\n")
 
 # Step 4: Identifying Most and Least Frequently Used Characters
 
 most_common_5_char = letter_counts.most_common(5)
+
 least_common_5_char = letter_counts.most_common()[:-6:-1]
 
-for char, count in sorted(letter_counts.items()):
-    print()
+unused_letters = [letter for letter in string.ascii_lowercase if letter not in letter_counts]
 
-for char, count in sorted(letter_counts.items()):
-    print()
+print("===== Top 5 Least Frequently Used Characters =====\n")
+for char, count in sorted(least_common_5_char):
+    print(f"{char}: {count}\n")
+
+print("===== Top 5 Least Frequently Used Characters =====\n")
+for char, count in sorted(most_common_5_char):
+    print(f"{char}: {count}\n")
+
+print("===== Unused Alphabet Characters =====\n")
+for letter in unused_letters:
+    print(letter)
+
+#Step
