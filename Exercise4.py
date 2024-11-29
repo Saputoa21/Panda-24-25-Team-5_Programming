@@ -117,3 +117,16 @@ word_percentages_rounded = {word: (count / total_word_count) for word, count in 
 print("\n===== Top 10 Most Frequently Used Words =====\n")
 for word, count in most_common_10_words:
     print(f"{word}: {count}")
+
+# Step 7: Storing Lyrics in a File
+
+reversed_song = song[::-1]
+
+with open('reversed_song.txt', 'w', encoding='utf-8') as file:
+    file.write(reversed_song)
+
+with open('reversed_song.txt', 'r', encoding='utf-8') as file:
+    reversed_content = file.read()
+
+print("===== Contents of 'song.txt' ===== \n")
+print(reversed_content,"\n")
