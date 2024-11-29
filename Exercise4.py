@@ -68,13 +68,19 @@ for letter in unused_letters:
     print(letter)
 
 #Step
-prepared_song = [word for word in content.lower().split() if word not in string.ascii_lowercase]
+cleaned_song = song.translate(str.maketrans('', '', string.punctuation)).lower()
 
-# prepared_song_no_punc = []
-# for word in prepared_song:
-#     for char in word:
-#         if char not in string.ascii_letters:
-#             prepared_song.remove(char)
+words = cleaned_song.split()
 
-print(prepared_song)
+total_word_count = len(words)
 
+word_frequencies = Counter(words)
+
+word_percentages = {word: (count % total_word_count) for word, count in word_frequencies.items()}
+
+print(word_percentages)
+
+
+print(" ===== Word Frequency Results =====\n")
+for word, frequency in word_percentages.items():
+    print(f"{word}: {frequency}")
