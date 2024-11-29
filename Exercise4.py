@@ -67,7 +67,8 @@ print("===== Unused Alphabet Characters =====\n")
 for letter in unused_letters:
     print(letter)
 
-#Step
+#Step 5 Counting Words and Unique Word Frequencies
+
 cleaned_song = song.translate(str.maketrans('', '', string.punctuation)).lower()
 
 words = cleaned_song.split()
@@ -80,7 +81,10 @@ word_percentages = {word: (count % total_word_count) for word, count in word_fre
 
 print(word_percentages)
 
-
 print(" ===== Word Frequency Results =====\n")
+unique_words = set()
 for word, frequency in word_percentages.items():
     print(f"{word}: {frequency}")
+    unique_words.add(word)
+
+print("\nTotal unique words found in the lyrics: ", len(unique_words),"\n")
