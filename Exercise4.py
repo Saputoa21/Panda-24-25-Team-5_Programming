@@ -161,4 +161,4 @@ print("\n===== Reversed Content of 'song.txt' =====\n")
 print(reversed_content,"\n")
 
 
-# Step 8: Logging
+# Step 8: Logging the Output / see above
