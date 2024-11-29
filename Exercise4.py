@@ -77,41 +77,45 @@ total_word_count = len(words)
 
 word_frequencies = Counter(words)
 
-word_percentages_modulo = {word: (count % total_word_count) for word, count in word_frequencies.items()}
+word_percentages_modulo = {word: (count / total_word_count) for word, count in word_frequencies.items()}
 
 print(" ===== Word Frequency Results =====\n")
 unique_words = set()
-for word, frequency in word_percentages_modulo.items():
+for word, frequency in word_frequencies.items():
     print(f"{word}: {frequency}")
     unique_words.add(word)
 
 print("\nTotal unique words found in the lyrics: ", len(unique_words),"\n")
 
+
+table = [
+    ["Word", "Occurence", "Percent"],
+        ]
+
+# for word, count in most_common_10_words:
+#     for word2, percent in word_percentages_rounded.items():
+#         if word == word2 in word_percentages_rounded.keys():
+#             table.append([word, count, percent])
+#         else:
+#             continue
+
+print("===== Word Types and Their Percentage of Total Content ===== \n")
+
+row_format = "{:<10} {:^15} {:<7}"
+
+for row in table:
+    print(row_format.format(*row))
+
+
+
 # Step 6: Identifying Top 10 Most Frequent Words and Their Percentage of Total
 
 most_common_10_words = word_frequencies.most_common(10)
 
+print(most_common_10_words)
+
 word_percentages_rounded = {word: (count / total_word_count) for word, count in word_frequencies.items()}
 
-table = []
-
+print("===== Top 10 Most Frequently Used Words =====")
 for word, count in most_common_10_words:
-    for word2, percent in word_percentages_rounded.items():
-        if word == word2 in word_percentages_rounded.keys():
-            table.append([word, count, percent])
-        else:
-            continue
-
-print(table)
-print("===== Word Types and Their Percentage of Total Content ===== \n")
-
-# for row in table:
-#     print("{:<10} {:<5} {:<12}".format(*row))
-#
-# . Display the 10 most frequently used words.
-# 2. Calculate and display what percentage these top 10 words comprise of the total word
-# count.
-# l) Hint
-#  Use most_common(10) on the Counter of words to find the top 10 words.
-#  Calculate the total count of these top words, and divide by the total word count to find the
-# percentage.
+    print(f"{word}: {count}")
