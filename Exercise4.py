@@ -3,8 +3,8 @@
 from collections import Counter
 import string
 
-
 #Step 1
+
 song = """
 … So, so you think you can tell heaven from hell? 
 Blue skies from pain? 
@@ -24,25 +24,24 @@ Running over the same old ground, what have we found?
 The same old fears, wish you were here 
 """
 
-
-
-#with open('song.txt', 'w', encoding='utf-8'):
-    
-
+with open('song.txt', 'w', encoding='utf-8') as file:
+    file.write(song)
 
 #Step 2
 
-# with open('song.txt', 'r', encoding='utf-8') as file:
-#     print(file)
-#
+with open('song.txt', 'r', encoding='utf-8') as file:
+    content = file.read()
 
+print("===== Contents of 'song.txt' ===== \n")
+print(content,"\n")
 
 # Step 3 Counting Letter Frequencies
+
 letter_counts = Counter(char.lower() for char in song if char.lower() in string.ascii_lowercase)
 
 non_alpha_counts = sum(1 for char in song if char not in string.ascii_letters)
 
-print("==== Letter Frequencies Results ==== ")
+print("==== Letter Frequencies Results ==== \n")
 for letter, count in sorted(letter_counts.items()):
     print(f"{letter}: {count}")
 
