@@ -3,6 +3,30 @@
 from collections import Counter
 import string
 import logging
+import sys
+
+
+log_file = "execution_log.txt"
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(message)s",
+    handlers=[
+        logging.FileHandler(log_file, mode="w"),
+        logging.StreamHandler(sys.stdout),
+    ]
+)
+
+class ConsoleLogger:
+    def __init__(self, logger):
+        self.logger = logger
+    def write(self, message):
+        if message.strip():  # Avoid logging empty messages
+            self.logger.info(message)
+    def flush(self):
+        pass  # Needed for compatibility with sys.stdout
+
+sys.stdout = ConsoleLogger(logging.getLogger())
 
 #Step 1: Storing Lyrics in a File
 
@@ -136,12 +160,5 @@ with open('reversed_song.txt', 'r', encoding='utf-8') as file:
 print("\n===== Reversed Content of 'song.txt' =====\n")
 print(reversed_content,"\n")
 
-# Step 8:
 
-log_file = "execution_log.txt"
-logging.basicConfig(
-    level=logging.INFO,
-    handlers=[
-        logging.StreamHandler(),
-        logging.FileHandler(log_file, mode='w')
-    ])
+# Step 8: Logging
