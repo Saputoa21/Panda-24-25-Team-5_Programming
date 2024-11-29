@@ -128,5 +128,5 @@ with open('reversed_song.txt', 'w', encoding='utf-8') as file:
 with open('reversed_song.txt', 'r', encoding='utf-8') as file:
     reversed_content = file.read()
 
-print("===== Contents of 'song.txt' ===== \n")
+print("\n===== Reversed Content of 'song.txt' =====\n")
 print(reversed_content,"\n")
