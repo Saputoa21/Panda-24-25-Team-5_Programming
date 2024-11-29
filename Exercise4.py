@@ -93,21 +93,17 @@ most_common_10_words = word_frequencies.most_common(10)
 
 word_percentages_rounded = {word: (count / total_word_count) for word, count in word_frequencies.items()}
 
-print(most_common_10_words)
-
-print(word_percentages_rounded)
-
-print("===== Word Types and Their Percentage of Total Content ===== \n")
-
 table = []
 
-for word, count in most_common_10_words.items():
-    for word, percent in word_percentages_rounded.items():
-        if word in most_common_10_words.keys() == word in word_percentages_rounded.keys():
+for word, count in most_common_10_words:
+    for word2, percent in word_percentages_rounded.items():
+        if word == word2 in word_percentages_rounded.keys():
             table.append([word, count, percent])
+        else:
+            continue
 
 print(table)
-
+print("===== Word Types and Their Percentage of Total Content ===== \n")
 
 # for row in table:
 #     print("{:<10} {:<5} {:<12}".format(*row))
