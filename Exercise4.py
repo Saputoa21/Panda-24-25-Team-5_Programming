@@ -2,6 +2,7 @@
 
 from collections import Counter
 import string
+import logging
 
 #Step 1: Storing Lyrics in a File
 
@@ -136,3 +137,11 @@ print("\n===== Reversed Content of 'song.txt' =====\n")
 print(reversed_content,"\n")
 
 # Step 8:
+
+log_file = "execution_log.txt"
+logging.basicConfig(
+    level=logging.INFO,
+    handlers=[
+        logging.StreamHandler(),
+        logging.FileHandler(log_file, mode='w')
+    ])
