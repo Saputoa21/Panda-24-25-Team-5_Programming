@@ -68,3 +68,13 @@ for letter in unused_letters:
     print(letter)
 
 #Step
+prepared_song = [word for word in content.lower().split() if word not in string.ascii_lowercase]
+
+# prepared_song_no_punc = []
+# for word in prepared_song:
+#     for char in word:
+#         if char not in string.ascii_letters:
+#             prepared_song.remove(char)
+
+print(prepared_song)
+
