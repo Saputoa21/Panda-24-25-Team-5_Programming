@@ -3,7 +3,7 @@
 from collections import Counter
 import string
 
-#Step 1
+#Step 1: Storing Lyrics in a File
 
 song = """
 … So, so you think you can tell heaven from hell? 
@@ -27,7 +27,7 @@ The same old fears, wish you were here
 with open('song.txt', 'w', encoding='utf-8') as file:
     file.write(song)
 
-# Step 2:
+# Step 2: Display the Lyrics Content
 
 with open('song.txt', 'r', encoding='utf-8') as file:
     content = file.read()
