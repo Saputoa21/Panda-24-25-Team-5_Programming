@@ -28,7 +28,7 @@ class ConsoleLogger:
 
 sys.stdout = ConsoleLogger(logging.getLogger())
 
-#Step 1: Storing Lyrics in a File
+# Step 1: Storing Lyrics in a File
 
 song = """
 … So, so you think you can tell heaven from hell? 
