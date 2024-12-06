@@ -5,6 +5,7 @@ import string
 import logging
 import sys
 
+#Step 8: Logging the output
 
 log_file = "execution_log.txt"
 
