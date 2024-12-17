@@ -21,10 +21,10 @@ class ConsoleLogger:
     def __init__(self, logger):
         self.logger = logger
     def write(self, message):
-        if message.strip():  # Avoid logging empty messages
+        if message.strip():
             self.logger.info(message)
     def flush(self):
-        pass  # Needed for compatibility with sys.stdout
+        pass
 
 sys.stdout = ConsoleLogger(logging.getLogger())
 
