@@ -41,3 +41,5 @@ sonnet1 = (Sonnet(sonnet_dict1))
 
 print(sonnet1)
 print(repr(sonnet1))
+
+#Part 3
