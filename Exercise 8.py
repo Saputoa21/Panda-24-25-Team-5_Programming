@@ -30,8 +30,8 @@ class Sonnet:
             self.title = match.group(2)
     def __str__(self):
         lines_print = "\n".join(self.lines)
-        return (f"Sonnet {self.id}: {self.title}\n"
-                f"\n{lines_print}\n")
+        return (f"Sonnet {self.id}: {self.title}"
+                f"{lines_print}\n")
     def __repr__(self):
         return f"Sonnet(id={self.id}, title='{self.title}', lines={self.lines})"
 
