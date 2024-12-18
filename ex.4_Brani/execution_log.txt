@@ -1,18 +1,18 @@
 ===== Contents of 'song.txt' ===== 
 
 
-… So, so you think you can tell heaven from hell? 
+â€¦ So, so you think you can tell heaven from hell? 
 Blue skies from pain? 
 Can you tell a green field from a cold steel rail? 
 A smile from a veil? 
 Do you think you can tell? 
-… Did they get you to trade your heroes for ghosts? 
+â€¦ Did they get you to trade your heroes for ghosts? 
 Hot ashes for trees? 
 Hot air for a cool breeze? 
 Cold comfort for change? 
 Did you exchange a walk on part in the war 
 For a lead role in a cage? 
-… How I wish, how I wish you were here 
+â€¦ How I wish, how I wish you were here 
 We're just two lost souls swimming in a fish bowl 
 Year after year 
 Running over the same old ground, what have we found? 
@@ -77,7 +77,7 @@ r: 33
 q
  ===== Word Frequency Results =====
 
-…: 3
+â€¦: 3
 so: 2
 you: 9
 think: 2
@@ -156,7 +156,7 @@ Total unique words found in the lyrics:
 
 Word       Occurencies Percentage (%) 
 ---------- ----------- ---------------
-…          3           0.025          
+â€¦          3           0.025          
 so         2           0.016666666666666666
 you        9           0.075          
 think      2           0.016666666666666666
@@ -235,7 +235,7 @@ you: 9
 a: 9
 for: 5
 from: 4
-…: 3
+â€¦: 3
 can: 3
 tell: 3
 in: 3
@@ -251,16 +251,16 @@ Top 10 words account for 37.5% of the total words in the song.
  ?dnuof ew evah tahw ,dnuorg dlo emas eht revo gninnuR
  raey retfa raeY
  lwob hsif a ni gnimmiws sluos tsol owt tsuj er'eW
- ereh erew uoy hsiw I woh ,hsiw I woH …
+ ereh erew uoy hsiw I woh ,hsiw I woH â€¦
  ?egac a ni elor dael a roF
  raw eht ni trap no klaw a egnahcxe uoy diD
  ?egnahc rof trofmoc dloC
  ?ezeerb looc a rof ria toH
  ?seert rof sehsa toH
- ?stsohg rof seoreh ruoy edart ot uoy teg yeht diD …
+ ?stsohg rof seoreh ruoy edart ot uoy teg yeht diD â€¦
  ?llet nac uoy kniht uoy oD
  ?liev a morf elims A
  ?liar leets dloc a morf dleif neerg a llet uoy naC
  ?niap morf seiks eulB
- ?lleh morf nevaeh llet nac uoy kniht uoy os ,oS …
+ ?lleh morf nevaeh llet nac uoy kniht uoy os ,oS â€¦
 
