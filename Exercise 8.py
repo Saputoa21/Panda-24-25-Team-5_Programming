@@ -45,7 +45,7 @@ class Sonnet:
     #                     if token not in tokens:
     #                         tokens.append(token)
     #     return tokens
-    def tokenize(self) -> list[str]:
+    def tokenize(self, stemmer) -> list[str]:
         tokens = []
         for line in self.lines:
             processed_line = str(line).strip().lower().split(" ")
@@ -53,6 +53,8 @@ class Sonnet:
                 processed_token = token.translate(str.maketrans("", "", string.punctuation))
                 if processed_token and processed_token not in tokens:
                     tokens.append(processed_token)
+                    for processed_token in tokens:
+                        processed_token = stemmer.stem(token, 0, len(token) - 1)  # Use the stemmer on a token
         return tokens
 
 
@@ -62,4 +64,4 @@ sonnet1 = (Sonnet(sonnet_dict1))
 
 print(sonnet1)
 print(repr(sonnet1))
-print(sonnet1.tokenize())
+print(sonnet1.tokenize(stemmer))
