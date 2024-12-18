@@ -27,29 +27,35 @@ class Sonnet:
                 f"{lines_print}\n")
     def __repr__(self):
         return f"Sonnet(id={self.id}, title='{self.title}', lines={self.lines})"
+    # def tokenize(self) -> list[str]:
+    #     tokens = []
+    #     for line in self.lines:
+    #         processed_line = str(line).strip().lower().split(" ")
+    #         for token in processed_line:
+    #             # if token not in string.punctuation:
+    #             for char in token:
+    #                 if char in string.punctuation:
+    #                     char.replace(char, "")
+    #                     if token not in tokens:
+    #                         tokens.append(token)
+    #                 else:
+    #                     if token not in tokens:
+    #                         tokens.append(token)
+    #     return tokens
     def tokenize(self) -> list[str]:
         tokens = []
         for line in self.lines:
             processed_line = str(line).strip().lower().split(" ")
             for token in processed_line:
-                # if token not in string.punctuation:
-                for char in token:
-                    if char in string.punctuation:
-                        char.replace(char, "")
-                        if token not in tokens:
-                            tokens.append(token)
-                    else:
-                        if token not in tokens:
-                            tokens.append(token)
+                processed_token = token.translate(str.maketrans("", "", string.punctuation))
+                if processed_token and processed_token not in tokens:
+                    tokens.append(processed_token)
         return tokens
 
-# cleaned_song = song.translate(str.maketrans('', '', string.punctuation)).lower()
-
-# creating an instance of the class Sonnet
+# Creating an instance of the class Sonnet
 sonnet_dict1 = sonnets_dict[0]
 sonnet1 = (Sonnet(sonnet_dict1))
 
-# print(sonnet1)
-# print(repr(sonnet1))
-
+print(sonnet1)
+print(repr(sonnet1))
 print(sonnet1.tokenize())
