@@ -2,6 +2,16 @@ from gettext import install
 import requests
 import json
 import string
+from porter_stemmer import PorterStemmer
+
+stemmer = PorterStemmer()
+tokens = ['this', 'day']
+for token in tokens:
+stemmed_token = stemmer.stem(token, 0, len(token) - 1)
+print(token, stemmed_token)
+
+
+
 
 sonnets = requests.get('https://poetrydb.org/author,title/Shakespeare;Sonnet')
 print(sonnets.text)
@@ -27,6 +37,8 @@ class Sonnet:
                 f"{lines_print}\n")
     def __repr__(self):
         return f"Sonnet(id={self.id}, title='{self.title}', lines={self.lines})"
+
+#Tokenise meethod as a couple of for-loops
     # def tokenize(self) -> list[str]:
     #     tokens = []
     #     for line in self.lines:
@@ -51,6 +63,7 @@ class Sonnet:
                 if processed_token and processed_token not in tokens:
                     tokens.append(processed_token)
         return tokens
+
 
 # Creating an instance of the class Sonnet
 sonnet_dict1 = sonnets_dict[0]
