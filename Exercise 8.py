@@ -52,16 +52,30 @@ class Sonnet:
             for token in processed_line:
                 processed_token = token.translate(str.maketrans("", "", string.punctuation))
                 if processed_token and processed_token not in tokens:
-                    tokens.append(processed_token)
-                    for processed_token in tokens:
-                        processed_token = stemmer.stem(token, 0, len(token) - 1)  # Use the stemmer on a token
+                    stemmed_token = stemmer.stem(processed_token, 0, len(processed_token) - 1)  # Use the stemmer on a token
+                    tokens.append(stemmed_token)
         return tokens
 
 
 # Creating an instance of the class Sonnet
+stemmer = PorterStemmer()
 sonnet_dict1 = sonnets_dict[0]
 sonnet1 = (Sonnet(sonnet_dict1))
 
 print(sonnet1)
 print(repr(sonnet1))
 print(sonnet1.tokenize(stemmer))
+
+
+"""
+output without stemmer
+['look', 'in', 'thy', 'glass', 'and', 'tell', 'the', 'face', 'thou', 'viewest', 'now', 'is', 'time', 'that', 'should', 'form', 'another', 'whose', 'fresh', 'repair', 'if', 'not', 'renewest', 'dost', 'beguile', 'world', 'unbless', 'some', 'mother', 'for', 'where', 'she', 'so', 'fair', 'uneard', 'womb', 'disdains', 'tillage', 'of', 'husbandry', 'or', 'who', 'he', 'fond', 'will', 'be', 'tomb', 'his', 'selflove', 'to', 'stop', 'posterity', 'art', 'mothers', 'thee', 'calls', 'back', 'lovely', 'april', 'her', 'prime', 'through', 'windows', 'thine', 'age', 'shalt', 'see', 'despite', 'wrinkles', 'this', 'golden', 'but', 'live', 'rememberd', 'die', 'single', 'image', 'dies', 'with']
+"""
+
+"""
+output with stemmer  
+['look', 'in', 'thy', 'glass', 'and', 'tell', 'the', 'face', 'thou', 'viewest', 'now', 'is', 'time', 'that', 'should', 'form', !'anoth', 'whose', 'fresh', 'repair', 'if', 'not', 'renewest', 'dost', !'beguil', 'world', 'unbless', 'some', 'mother', 'for', 'where', 'she', 'so', 'fair', 'uneard', 'womb', !'disdain', !'tillag', 'of', !'husbandri', 'or', 'who', 'he', 'fond', 'will', 'be', 'tomb', !'hi', !'selflov', 'to', 'stop', !'poster', 'art', !'mother', 'thee', !'call', 'back', 'love', 'april', 'her', 'prime', 'through', !'window', 'thine', !'ag', 'shalt', 'see', !'despit', !'wrinkl', !'thi', 'golden', 'but', 'live', 'rememberd', 'die', !'singl', !'imag', 'di', 'with']
+"""
+
+# We found it interseting that the stemmer did only little changes on the words and is not suitable for stemming such old texts, which had own grammar, e.g. the ending -est for second-person singular simple present indicative of view)
+# also "thy" is not changes although there is a method in the stemmer class for converting "y" to "i"
