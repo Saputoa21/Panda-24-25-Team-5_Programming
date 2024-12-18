@@ -49,7 +49,6 @@ print(sonnet1)
 print(repr(sonnet1))
 print(sonnet1.tokenize(stemmer))
 
-
 """
 output without stemmer
 ['look', 'in', 'thy', 'glass', 'and', 'tell', 'the', 'face', 'thou', 'viewest', 'now', 'is', 'time', 'that', 'should', 'form', 'another', 'whose', 'fresh', 'repair', 'if', 'not', 'renewest', 'dost', 'beguile', 'world', 'unbless', 'some', 'mother', 'for', 'where', 'she', 'so', 'fair', 'uneard', 'womb', 'disdains', 'tillage', 'of', 'husbandry', 'or', 'who', 'he', 'fond', 'will', 'be', 'tomb', 'his', 'selflove', 'to', 'stop', 'posterity', 'art', 'mothers', 'thee', 'calls', 'back', 'lovely', 'april', 'her', 'prime', 'through', 'windows', 'thine', 'age', 'shalt', 'see', 'despite', 'wrinkles', 'this', 'golden', 'but', 'live', 'rememberd', 'die', 'single', 'image', 'dies', 'with']
