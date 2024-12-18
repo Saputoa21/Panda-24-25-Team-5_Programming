@@ -4,15 +4,6 @@ import json
 import string
 from porter_stemmer import PorterStemmer
 
-stemmer = PorterStemmer()
-tokens = ['this', 'day']
-for token in tokens:
-stemmed_token = stemmer.stem(token, 0, len(token) - 1)
-print(token, stemmed_token)
-
-
-
-
 sonnets = requests.get('https://poetrydb.org/author,title/Shakespeare;Sonnet')
 print(sonnets.text)
 print(type(sonnets.text))
