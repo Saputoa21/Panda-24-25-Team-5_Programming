@@ -1,4 +1,3 @@
-from gettext import install
 import requests
 import json
 import string
