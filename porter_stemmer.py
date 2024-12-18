@@ -368,8 +368,8 @@ if __name__ == '__main__':
 
 
 # # Create an instance of the stemmer
-stemmer = PorterStemmer()
-tokens = ['this',"is", "the", "best", 'day']
-for token in tokens:
-    stemmed_token = stemmer.stem(token, 0, len(token) - 1) # Use the stemmer on a token
-    print(stemmed_token)
+# stemmer = PorterStemmer()
+# tokens = ['this',"is", "the", "best", 'day']
+# for token in tokens:
+#     stemmed_token = stemmer.stem(token, 0, len(token) - 1) # Use the stemmer on a token
+#     print(stemmed_token)
