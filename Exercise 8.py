@@ -28,23 +28,6 @@ class Sonnet:
                 f"{lines_print}\n")
     def __repr__(self):
         return f"Sonnet(id={self.id}, title='{self.title}', lines={self.lines})"
-
-#Tokenise meethod as a couple of for-loops
-    # def tokenize(self) -> list[str]:
-    #     tokens = []
-    #     for line in self.lines:
-    #         processed_line = str(line).strip().lower().split(" ")
-    #         for token in processed_line:
-    #             # if token not in string.punctuation:
-    #             for char in token:
-    #                 if char in string.punctuation:
-    #                     char.replace(char, "")
-    #                     if token not in tokens:
-    #                         tokens.append(token)
-    #                 else:
-    #                     if token not in tokens:
-    #                         tokens.append(token)
-    #     return tokens
     def tokenize(self, stemmer) -> list[str]:
         tokens = []
         for line in self.lines:
