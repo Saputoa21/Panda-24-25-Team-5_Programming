@@ -60,3 +60,41 @@ output with stemmer
 
 # We found it interseting that the stemmer did only little changes on the words and is not suitable for stemming such old texts, which had own grammar, e.g. the ending -est for second-person singular simple present indicative of view)
 # also "thy" is not changes although there is a method in the stemmer class for converting "y" to "i"
+
+# Creating list of instances of the class Sonnet
+
+sonnet_list = []
+for sonnet in sonnets_dict:
+    sonnet = Sonnet(sonnet)
+    sonnet_list.append(sonnet)
+
+print(sonnet_list[:3])
+
+# class Index(dict[str, set[int]]):
+#     def __init__(self, documents: list[Sonnet]):
+#         super().__init__()
+#         self.documents = documents
+#         for document in documents:
+#             self.add(document)
+#     def add(self, document: Sonnet):
+#         inverted_index = {}
+#         for token in document.tokenize(stemmer):
+#             if token in inverted_index:
+#                 inverted_index[token] = set.add(self.id)
+#             else:
+#                 inverted_index[token] = set()
+#
+
+
+
+index = Index(sonnet_list[:2])
+
+print(index.add(sonnet1))
+
+
+
+
+
+
+
+
