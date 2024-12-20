@@ -23,8 +23,8 @@ else:
 
 class Sonnet:
     def __init__(self, sonnet):
-        full_title = sonnet.get("title", " ")
-        self.lines = sonnet.get("lines", [])
+        full_title = sonnet["title"]
+        self.lines = sonnet["lines"]
         parts = full_title.split(": ", 1)
         self.title = parts[1]  # "From fairest creatures we desire increase" - we use strip because there can be a whitespace between two parts, e.g. Sonnet 1_'From ...'.
         self.id = int(parts[0].split(" ")[1]) # we devide the "Sonnet 1" by space between the words and get "Sonnet" at index [0] and the number at index [1]
@@ -33,8 +33,9 @@ class Sonnet:
         return (f"Sonnet {self.id}: {self.title}\n"
                 f"{lines_print}\n")
     def __repr__(self):
-        return f"Sonnet {self.id}: {self.title}\n"
-
+        lines_print = "\n".join(self.lines)
+        return (f"Sonnet {self.id}: {self.title}\n"
+                f"{lines_print}\n")
     def tokenize(self, stemmer) -> list[str]:
         tokens = []
         for line in self.lines:
@@ -42,16 +43,31 @@ class Sonnet:
             for token in processed_line:
                 processed_token = token.translate(str.maketrans("", "", string.punctuation))
                 if processed_token and processed_token not in tokens:
-                    stemmed_token = stemmer.stem(processed_token, 0, len(processed_token) - 1)  # Use the stemmer on a token
+                    stemmed_token = stemmer.stem(processed_token, 0, len(processed_token) - 1)
                     tokens.append(stemmed_token)
         return tokens
+class Index(dict[str, set[int]]):
+    def __init__(self, documents: list[Sonnet]):
+        super().__init__()
+        self.documents = documents
+        self.inverted_index = {}
+        for document in documents:
+            self.add(document)
+    def add(self, document: Sonnet):
+        id = document.id
+        for token in document.tokenize(stemmer):
+            if token not in self.inverted_index:
+                self.inverted_index[token] = set()
+            else:
+                self.inverted_index[token].add(id)
+    def get_inverted_index(self):
+        return self.inverted_index
 
 
 # Creating an instance of the class Sonnet
-sonnet1 = sonnets[0]
-sonnet1 = (Sonnet(sonnet1))
+sonnet1 = (Sonnet(sonnets[0]))
 
-print(sonnet1)
+print(sonnet1.id)
 print(repr(sonnet1))
 print(sonnet1.tokenize(stemmer))
 
@@ -69,39 +85,10 @@ output with stemmer
 # also "thy" is not changes although there is a method in the stemmer class for converting "y" to "i"
 
 # Creating list of instances of the class Sonnet
+sonnet_list = [Sonnet(sonnet) for sonnet in sonnets]
+# print(sonnet_list[:2])
 
-sonnet_list = []
-for sonnet in sonnets_dict:
-    sonnet = Sonnet(sonnet)
-    sonnet_list.append(sonnet)
-
-print(sonnet_list[:3])
-
-# class Index(dict[str, set[int]]):
-#     def __init__(self, documents: list[Sonnet]):
-#         super().__init__()
-#         self.documents = documents
-#         for document in documents:
-#             self.add(document)
-#     def add(self, document: Sonnet):
-#         inverted_index = {}
-#         for token in document.tokenize(stemmer):
-#             if token in inverted_index:
-#                 inverted_index[token] = set.add(self.id)
-#             else:
-#                 inverted_index[token] = set()
-#
-
-
-
-index = Index(sonnet_list[:2])
-
-print(index.add(sonnet1))
-
-
-
-
-
-
-
-
+# Getting inverted index
+index = Index(sonnet_list)
+inverted_index = index.get_inverted_index()
+print(inverted_index)
