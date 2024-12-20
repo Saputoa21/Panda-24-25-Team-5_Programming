@@ -4,6 +4,7 @@ import os
 import string
 from porter_stemmer import PorterStemmer
 
+stemmer = PorterStemmer()
 
 file_name = "Shakespeare_sonnets.json"
 sonnets = []
@@ -24,18 +25,16 @@ class Sonnet:
     def __init__(self, sonnet):
         full_title = sonnet.get("title", " ")
         self.lines = sonnet.get("lines", [])
-        self.linecount = sonnet.get("linecount", " ")
-
-        parts = full_title.split(":")
-        sonnet_number_part = parts[0]  # "Sonnet 1"
-        self.title = parts[1].strip()  # "From fairest creatures we desire increase" - we use strip because there can be a whitespace between two parts, e.g. Sonnet 1_'From ...'.
-        self.id = int(sonnet_number_part.split(" ")[1]) # we devide the "Sonnet 1" by space between the words and get "Sonnet" at index [0] and the number at index [1]
+        parts = full_title.split(": ", 1)
+        self.title = parts[1]  # "From fairest creatures we desire increase" - we use strip because there can be a whitespace between two parts, e.g. Sonnet 1_'From ...'.
+        self.id = int(parts[0].split(" ")[1]) # we devide the "Sonnet 1" by space between the words and get "Sonnet" at index [0] and the number at index [1]
     def __str__(self):
         lines_print = "\n".join(self.lines)
         return (f"Sonnet {self.id}: {self.title}\n"
                 f"{lines_print}\n")
     def __repr__(self):
-        return f"Sonnet(id={self.id}, title='{self.title}', lines={self.lines})"
+        return f"Sonnet {self.id}: {self.title}\n"
+
     def tokenize(self, stemmer) -> list[str]:
         tokens = []
         for line in self.lines:
@@ -49,9 +48,8 @@ class Sonnet:
 
 
 # Creating an instance of the class Sonnet
-stemmer = PorterStemmer()
-sonnet_dict1 = sonnets_dict[0]
-sonnet1 = (Sonnet(sonnet_dict1))
+sonnet1 = sonnets[0]
+sonnet1 = (Sonnet(sonnet1))
 
 print(sonnet1)
 print(repr(sonnet1))
