@@ -1,15 +1,24 @@
 import requests
 import json
+import os
 import string
 from porter_stemmer import PorterStemmer
 
-sonnets = requests.get('https://poetrydb.org/author,title/Shakespeare;Sonnet')
-print(sonnets.text)
-print(type(sonnets.text))
 
-sonnets_dict = json.loads(sonnets.text)
-print(sonnets_dict[0])
-print(type(sonnets_dict))
+file_name = "Shakespeare_sonnets.json"
+sonnets = []
+
+if not os.path.exists(file_name):
+    response = requests.get('https://poetrydb.org/author,title/Shakespeare;Sonnet')
+    with open(file_name, "w", encoding="utf-8") as file:
+        file.write(response.text)
+    print(f"Sonnets stored in file: {file_name}")
+
+    if response.status_code == 200:
+        sonnets = json.loads(response.text)
+else:
+    with open(file_name, "r", encoding="utf-8") as file:
+        sonnets = json.load(file)
 
 class Sonnet:
     def __init__(self, sonnet):
