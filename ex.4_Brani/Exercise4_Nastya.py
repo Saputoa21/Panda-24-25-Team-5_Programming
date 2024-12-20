@@ -161,5 +161,4 @@ with open('reversed_song.txt', 'r', encoding='utf-8') as file:
 print("\n===== Reversed Content of 'song.txt' =====\n")
 print(reversed_content,"\n")
 
-
 # Step 8: Logging the Output / see above
