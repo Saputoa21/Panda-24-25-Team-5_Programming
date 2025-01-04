@@ -83,9 +83,9 @@ class Index(dict[str, set[int]]):
                 return []
         matching_sonnets = []
         for document in self.documents:
-            if document.id in matching_ids:
-                matching_sonnets.append(document.id)
-        return sorted(matching_sonnets)
+            if document.id in sorted(matching_ids):
+                matching_sonnets.append(document)
+        return matching_sonnets
 
 # Creating an instance of the class Sonnet
 sonnet1 = (Sonnet(sonnets[0]))
@@ -121,5 +121,8 @@ print(query)
 print(query.tokenize(stemmer))
 
 # Searching for "love" and "hate" in the list Sonnet instances
-queary_search = index.search(query)
-print(queary_search)
+matching_sonnets = index.search(query)  # Search the index with the query
+
+# Print the results
+for matching_sonnet in matching_sonnets:
+    print(matching_sonnet)
