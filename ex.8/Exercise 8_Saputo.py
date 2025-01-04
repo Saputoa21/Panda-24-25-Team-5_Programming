@@ -120,5 +120,6 @@ query = Query("love hate")
 print(query)
 print(query.tokenize(stemmer))
 
+# Searching for "love" and "hate" in the list Sonnet instances
 queary_search = index.search(query)
 print(queary_search)
