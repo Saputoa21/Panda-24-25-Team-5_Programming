@@ -86,7 +86,6 @@ output with stemmer
 
 # Creating list of instances of the class Sonnet
 sonnet_list = [Sonnet(sonnet) for sonnet in sonnets]
-# print(sonnet_list[:2])
 
 # Getting inverted index
 index = Index(sonnet_list)
