@@ -71,27 +71,21 @@ class Index(dict[str, set[int]]):
                 self.inverted_index[token].add(id)
     def get_inverted_index(self):
         return self.inverted_index
-    # def search(self, query: Query) -> list[Sonnet]:
-    #     """Finds sonnets that contain all the tokens from the query."""
-    #     query_tokens = query.tokenize(stemmer)  # Tokenize the query
-    #     # Find matching document IDs by intersecting sets
-    #     matching_ids = None
-    #     for token in query_tokens:
-    #         if token in self.inverted_index:
-    #             if matching_ids is None:
-    #                 matching_ids = self.inverted_index[token]
-    #             else:
-    #                 matching_ids = matching_ids.intersection(self.inverted_index[token])
-    #     # If no documents match, return an empty list
-    #     if not matching_ids:
-    #         return []
-    #
-    #     # Convert IDs to Sonnet objects and sort by ID
-    #     matching_sonnets = sorted(
-    #         [doc for doc in self.documents if doc.id in matching_ids],
-    #         key=lambda sonnet: sonnet.id
-    #     )
-    #     return matching_sonnets
+    def search(self, query: Query) -> list[Sonnet]:
+        query_tokens = query.tokenize(stemmer)  # Tokenize the query
+        matching_ids = []
+        for token in query_tokens:
+            if token in self.inverted_index:
+                matching_ids = self.inverted_index[token]
+            else:
+                matching_ids = matching_ids.intersection(self.inverted_index[token])
+            if not matching_ids:
+                return []
+        matching_sonnets = []
+        for document in self.documents:
+            if document.id in matching_ids:
+                matching_sonnets.append(document.id)
+        return sorted(matching_sonnets)
 
 # Creating an instance of the class Sonnet
 sonnet1 = (Sonnet(sonnets[0]))
@@ -125,3 +119,6 @@ print(inverted_index)
 query = Query("love hate")
 print(query)
 print(query.tokenize(stemmer))
+
+queary_search = index.search(query)
+print(queary_search)
