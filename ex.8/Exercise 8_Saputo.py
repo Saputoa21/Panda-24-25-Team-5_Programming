@@ -120,9 +120,7 @@ query = Query("love hate")
 print(query)
 print(query.tokenize(stemmer))
 
-# Searching for "love" and "hate" in the list Sonnet instances
-matching_sonnets = index.search(query)  # Search the index with the query
-
-# Print the results
+# Search the index with the query "love" and "hate"
+matching_sonnets = index.search(query)
 for matching_sonnet in matching_sonnets:
-    print(matching_sonnet)
+    print(matching_sonnet)  # [35, 40, 89, 90, 117, 124, 129, 142, 145, 149, 150, 152]
