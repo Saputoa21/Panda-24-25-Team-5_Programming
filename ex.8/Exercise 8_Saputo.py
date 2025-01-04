@@ -21,10 +21,25 @@ else:
     with open(file_name, "r", encoding="utf-8") as file:
         sonnets = json.load(file)
 
-class Sonnet:
+class Document:
+    def __init__(self, lines):
+        self.lines = lines
+    def tokenize(self, stemmer) -> list[str]:
+        tokens = []
+        for line in self.lines:
+            processed_line = str(line).strip().lower().split(" ")
+            for token in processed_line:
+                processed_token = token.translate(str.maketrans("", "", string.punctuation))
+                if processed_token and processed_token not in tokens:
+                    stemmed_token = stemmer.stem(processed_token, 0, len(processed_token) - 1)
+                    tokens.append(stemmed_token)
+        return tokens
+
+class Sonnet(Document):
     def __init__(self, sonnet):
         full_title = sonnet["title"]
-        self.lines = sonnet["lines"]
+        lines = sonnet["lines"]
+        super().__init__(lines)
         parts = full_title.split(": ", 1)
         self.title = parts[1]  # "From fairest creatures we desire increase" - we use strip because there can be a whitespace between two parts, e.g. Sonnet 1_'From ...'.
         self.id = int(parts[0].split(" ")[1]) # we devide the "Sonnet 1" by space between the words and get "Sonnet" at index [0] and the number at index [1]
@@ -36,16 +51,10 @@ class Sonnet:
         lines_print = "\n".join(self.lines)
         return (f"Sonnet {self.id}: {self.title}\n"
                 f"{lines_print}\n")
-    def tokenize(self, stemmer) -> list[str]:
-        tokens = []
-        for line in self.lines:
-            processed_line = str(line).strip().lower().split(" ")
-            for token in processed_line:
-                processed_token = token.translate(str.maketrans("", "", string.punctuation))
-                if processed_token and processed_token not in tokens:
-                    stemmed_token = stemmer.stem(processed_token, 0, len(processed_token) - 1)
-                    tokens.append(stemmed_token)
-        return tokens
+class Query(Document):
+    def __init__(self, query: str):
+        super().__init__([query])
+
 class Index(dict[str, set[int]]):
     def __init__(self, documents: list[Sonnet]):
         super().__init__()
@@ -62,7 +71,7 @@ class Index(dict[str, set[int]]):
                 self.inverted_index[token].add(id)
     def get_inverted_index(self):
         return self.inverted_index
-
+   #def search(self, query: Query) -> list[Sonnet]
 
 # Creating an instance of the class Sonnet
 sonnet1 = (Sonnet(sonnets[0]))
@@ -91,3 +100,8 @@ sonnet_list = [Sonnet(sonnet) for sonnet in sonnets]
 index = Index(sonnet_list)
 inverted_index = index.get_inverted_index()
 print(inverted_index)
+
+# Creating an instance of Query class:
+query = Query("love hate")
+print(query)
+print(query.tokenize(stemmer))

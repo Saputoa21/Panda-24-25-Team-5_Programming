@@ -1,0 +1,251 @@
+===== Contents of 'song.txt' ===== 
+
+… So, so you think you can tell heaven from hell?
+Blue skies from pain?
+Can you tell a green field from a cold steel rail?
+A smile from a veil?
+Do you think you can tell?
+… Did they get you to trade your heroes for ghosts?
+Hot ashes for trees?
+Hot air for a cool breeze?
+Cold comfort for change?
+Did you exchange a walk on part in the war
+For a lead role in a cage?
+… How I wish, how I wish you were here
+We're just two lost souls swimming in a fish bowl
+Year after year
+Running over the same old ground, what have we found?
+The same old fears, wish you were here
+==== Letter Frequencies Results ==== 
+
+a: 33
+b: 3
+c: 10
+d: 14
+e: 54
+f: 15
+g: 9
+h: 25
+i: 23
+j: 1
+k: 4
+l: 25
+m: 10
+n: 20
+o: 46
+p: 2
+r: 33
+s: 24
+t: 24
+u: 16
+v: 4
+w: 15
+x: 1
+y: 13
+z: 1
+
+Non-alphabet characters:
+138
+===== Top 5 Most Frequently Used Characters =====
+e: 54
+o: 46
+a: 33
+r: 33
+h: 25
+
+===== Top 5 Least Frequently Used Characters =====
+j: 1
+x: 1
+z: 1
+p: 2
+b: 3
+
+===== Unused Alphabet Characters =====
+q
+ ===== Word Frequency Results =====
+
+…: 3
+so: 2
+you: 9
+think: 2
+can: 3
+tell: 3
+heaven: 1
+from: 4
+hell: 1
+blue: 1
+skies: 1
+pain: 1
+a: 9
+green: 1
+field: 1
+cold: 2
+steel: 1
+rail: 1
+smile: 1
+veil: 1
+do: 1
+did: 2
+they: 1
+get: 1
+to: 1
+trade: 1
+your: 1
+heroes: 1
+for: 5
+ghosts: 1
+hot: 2
+ashes: 1
+trees: 1
+air: 1
+cool: 1
+breeze: 1
+comfort: 1
+change: 1
+exchange: 1
+walk: 1
+on: 1
+part: 1
+in: 3
+the: 3
+war: 1
+lead: 1
+role: 1
+cage: 1
+how: 2
+i: 2
+wish: 3
+were: 3
+here: 2
+just: 1
+two: 1
+lost: 1
+souls: 1
+swimming: 1
+fish: 1
+bowl: 1
+year: 2
+after: 1
+running: 1
+over: 1
+same: 2
+old: 2
+ground: 1
+what: 1
+have: 1
+we: 1
+found: 1
+fears: 1
+
+Total unique words found in the lyrics: 
+72
+===== Word Types and Their Percentage of Total Content ===== 
+
+Word       Occurencies Percentage (%) 
+---------- ----------- ---------------
+…          3           2.50           
+so         2           1.67           
+you        9           7.50           
+think      2           1.67           
+can        3           2.50           
+tell       3           2.50           
+heaven     1           0.83           
+from       4           3.33           
+hell       1           0.83           
+blue       1           0.83           
+skies      1           0.83           
+pain       1           0.83           
+a          9           7.50           
+green      1           0.83           
+field      1           0.83           
+cold       2           1.67           
+steel      1           0.83           
+rail       1           0.83           
+smile      1           0.83           
+veil       1           0.83           
+do         1           0.83           
+did        2           1.67           
+they       1           0.83           
+get        1           0.83           
+to         1           0.83           
+trade      1           0.83           
+your       1           0.83           
+heroes     1           0.83           
+for        5           4.17           
+ghosts     1           0.83           
+hot        2           1.67           
+ashes      1           0.83           
+trees      1           0.83           
+air        1           0.83           
+cool       1           0.83           
+breeze     1           0.83           
+comfort    1           0.83           
+change     1           0.83           
+exchange   1           0.83           
+walk       1           0.83           
+on         1           0.83           
+part       1           0.83           
+in         3           2.50           
+the        3           2.50           
+war        1           0.83           
+lead       1           0.83           
+role       1           0.83           
+cage       1           0.83           
+how        2           1.67           
+i          2           1.67           
+wish       3           2.50           
+were       3           2.50           
+here       2           1.67           
+just       1           0.83           
+two        1           0.83           
+lost       1           0.83           
+souls      1           0.83           
+swimming   1           0.83           
+fish       1           0.83           
+bowl       1           0.83           
+year       2           1.67           
+after      1           0.83           
+running    1           0.83           
+over       1           0.83           
+same       2           1.67           
+old        2           1.67           
+ground     1           0.83           
+what       1           0.83           
+have       1           0.83           
+we         1           0.83           
+found      1           0.83           
+fears      1           0.83           
+
+===== Top 10 Most Frequently Used Words =====
+
+you: 9
+a: 9
+for: 5
+from: 4
+…: 3
+can: 3
+tell: 3
+in: 3
+the: 3
+wish: 3
+
+Top 10 words account for 37.5% of the total words in the song.
+
+===== Reversed Content of 'song.txt' =====
+
+ereh erew uoy hsiw ,sraef dlo emas ehT
+?dnuof ew evah tahw ,dnuorg dlo emas eht revo gninnuR
+raey retfa raeY
+lwob hsif a ni gnimmiws sluos tsol owt tsuj er'eW
+ereh erew uoy hsiw I woh ,hsiw I woH …
+?egac a ni elor dael a roF
+raw eht ni trap no klaw a egnahcxe uoy diD
+?egnahc rof trofmoc dloC
+?ezeerb looc a rof ria toH
+?seert rof sehsa toH
+?stsohg rof seoreh ruoy edart ot uoy teg yeht diD …
+?llet nac uoy kniht uoy oD
+?liev a morf elims A
+?liar leets dloc a morf dleif neerg a llet uoy naC
+?niap morf seiks eulB
+?lleh morf nevaeh llet nac uoy kniht uoy os ,oS …
