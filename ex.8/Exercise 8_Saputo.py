@@ -54,31 +54,28 @@ class Sonnet(Document):
 class Query(Document):
     def __init__(self, query: str):
         super().__init__([query])
-
 class Index(dict[str, set[int]]):
     def __init__(self, documents: list[Sonnet]):
         super().__init__()
         self.documents = documents
-        self.inverted_index = {}
         for document in documents:
             self.add(document)
-    def add(self, document: Sonnet):
-        id = document.id
-        for token in document.tokenize(stemmer):
-            if token not in self.inverted_index:
-                self.inverted_index[token] = set()
-            else:
-                self.inverted_index[token].add(id)
+    def add(self, document: Sonnet) -> None:
+        tokens = document.tokenize(stemmer)
+        for token in tokens:
+            if token not in self:
+                self[token] = set()
+            self[token].add(document.id)
     def get_inverted_index(self):
-        return self.inverted_index
+        return self
     def search(self, query: Query) -> list[Sonnet]:
         query_tokens = query.tokenize(stemmer)  # Tokenize the query
         matching_ids = []
         for token in query_tokens:
-            if token in self.inverted_index:
-                matching_ids = self.inverted_index[token]
+            if token in self:
+                matching_ids = self[token]
             else:
-                matching_ids = matching_ids.intersection(self.inverted_index[token])
+                matching_ids = matching_ids.intersection(self[token])
             if not matching_ids:
                 return []
         matching_sonnets = []
