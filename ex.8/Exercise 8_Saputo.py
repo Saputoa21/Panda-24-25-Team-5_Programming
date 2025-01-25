@@ -69,19 +69,18 @@ class Index(dict[str, set[int]]):
     def get_inverted_index(self):
         return self
     def search(self, query: Query) -> list[Sonnet]:
-        query_tokens = query.tokenize(stemmer)  # Tokenize the query
-        matching_ids = []
+        query_tokens = query.tokenize(stemmer)
+        if not query_tokens:
+            return []
+        posting_lists = []
         for token in query_tokens:
             if token in self:
-                matching_ids = self[token]
+                posting_lists.append(self[token])
             else:
-                matching_ids = matching_ids.intersection(self[token])
-            if not matching_ids:
                 return []
-        matching_sonnets = []
-        for document in self.documents:
-            if document.id in sorted(matching_ids):
-                matching_sonnets.append(document)
+        matching_ids = set.intersection(*posting_lists)
+        matching_sonnets = [document for document in self.documents if document.id in matching_ids]
+        matching_sonnets.sort(key=lambda x: x.id)
         return matching_sonnets
 
 #Interface
