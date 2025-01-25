@@ -103,7 +103,7 @@ while True:
         for matching_sonnet in matching_sonnets:
             print(matching_sonnet)
     else:
-        print(f"Unfortunaltelly, no sonnet matched your query {user_query}.")
+        print(f"Unfortunaltelly, no sonnet matched your query '{user_query}'.")
 
 
 
